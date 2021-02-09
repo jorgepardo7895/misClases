@@ -1,4 +1,4 @@
-package clasesAvanzadas;
+package utiles;
 
 import java.util.Scanner;
 
@@ -65,6 +65,7 @@ public class Teclado {
 		String aux="", entrada="";
 		int cont=entrada.length();
 		float numero;
+		
 		System.out.println("Introduce un numero decimal");
 		entrada=sc.nextLine();
 		do {
