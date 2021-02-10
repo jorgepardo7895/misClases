@@ -12,6 +12,12 @@ public class Teclado {
 		sc=new Scanner(System.in);
 	}
 	
+	public String deTodo() {
+		String frase=sc.nextLine();
+		
+		return frase;
+	}
+	
 	public String letras() {
 		String aux="", entrada="";
 		int cont=entrada.length();

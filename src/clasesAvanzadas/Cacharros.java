@@ -21,9 +21,9 @@ public class Cacharros {
 	}
 	
 	//Getters y Setters
-	public String GetTodo() {
-		String datos="Marca: "+this.marca+", Tipo"+this.tipo+", "+this.consumo;
-		return datos;
+	public String toString() {
+		
+		return "· Marca: " +getMarca()+ "\n" + "· Tipo: "+getTipo()+"\n"+ "· Consumo: "+getConsumo();
 	}
 
 	public String getMarca() {
