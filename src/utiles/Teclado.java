@@ -21,7 +21,7 @@ public class Teclado {
 	public String letras() {
 		String aux="", entrada="";
 		int cont=entrada.length();
-		System.out.println("Introduce solo palabras");
+		System.out.println("Ingresa solo palabras");
 		entrada=sc.nextLine();
 		do {
 			
@@ -30,7 +30,7 @@ public class Teclado {
 					aux+=entrada.charAt(i);
 					cont--;
 				}else if(Character.isDigit(entrada.charAt(i))) {
-					System.out.println("Error, no inserte numeros por favor");
+					System.out.println("Error, por favor solo letras");
 					entrada=sc.nextLine();
 					cont=entrada.length();
 					break;
@@ -45,7 +45,7 @@ public class Teclado {
 	public int enteros() {
 		String aux="", entrada="";
 		int numero=0, cont=entrada.length();
-		System.out.println("Introduce un numero entero");
+		System.out.println("Ingrese un numero entero");
 		entrada=sc.nextLine();
 		do {
 			
@@ -54,7 +54,7 @@ public class Teclado {
 					aux+=entrada.charAt(i);
 					cont--;
 				}else if(Character.isLetter(entrada.charAt(i))) {
-					System.out.println("Error, inserte un numero por favor");
+					System.out.println("Error, ingrese un numero entero por favor");
 					entrada=sc.nextLine();
 					cont=entrada.length();
 					break;
@@ -72,7 +72,7 @@ public class Teclado {
 		int cont=entrada.length();
 		float numero;
 		
-		System.out.println("Introduce un numero decimal");
+		System.out.println("Ingresa un numero decimal");
 		entrada=sc.nextLine();
 		do {
 			
@@ -87,7 +87,7 @@ public class Teclado {
 					}
 					
 				}else if(Character.isLetter(entrada.charAt(i))||entrada.charAt(i)!=','||entrada.charAt(i)!='.') {
-					System.out.println("Error, inserte un numero por favor");
+					System.out.println("Error, ingrese un numero decimal por favor");
 					entrada=sc.next();
 					cont=entrada.length();
 					break;
@@ -98,5 +98,55 @@ public class Teclado {
 			
 		numero = (float)Float.parseFloat(aux);
 		return numero;
+	}
+	
+	public boolean bool() {
+		boolean bool = false;
+		String respuesta="";
+		System.out.println("Escriba 's' o 'n', 'verdadero' o 'falso', 'v' o 'f', 'si' o 'no'");
+		respuesta = sc.nextLine();
+		
+		if (respuesta.equalsIgnoreCase("s")||respuesta.equalsIgnoreCase("verdadero")||respuesta.equalsIgnoreCase("v")||respuesta.equalsIgnoreCase("si")) {
+			bool=true;
+		}else if(respuesta.equalsIgnoreCase("n")||respuesta.equalsIgnoreCase("falso")||respuesta.equalsIgnoreCase("f")||respuesta.equalsIgnoreCase("no")) {
+			bool=false;
+		}else {
+			System.out.println("Selección incorrecta, ciñase a las indicaciones");
+			bool();
+		}
+		
+		return bool;
+	}
+	
+	public char letra() {
+		System.out.println("Introduce la letra");
+		String entrada=letras();
+		char letra[]=new char[0];
+		if (entrada.length()>1||entrada.length()<1) {
+			System.out.println("Solo una letra por favor");
+		}else if (entrada.length()==1) {
+			letra=entrada.toCharArray();
+		}
+		return letra[0];
+	}
+	
+	public String dni() {
+		System.out.println("Introduzca su DNI");
+		String dni = deTodo();
+		String dniComprobado="";
+		if (dni.length()< 9 ||dni.length()>9 ) {
+			dni();
+		}else {
+			for (int i = 0; i < dni.length(); i++) {
+				if (Character.isDigit(dni.charAt(i))||Character.isLetter(dni.charAt(8))) {
+					dniComprobado+=dni.charAt(i);
+				}else {
+					System.out.println("ERROR EN EL DNI INTRODUCIDO, INTENTELO DE NUEVO");
+					dni();
+				}
+			}
+		}
+		
+		return dniComprobado;
 	}
 }
