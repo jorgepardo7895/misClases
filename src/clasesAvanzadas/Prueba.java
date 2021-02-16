@@ -1,28 +1,22 @@
 package clasesAvanzadas;
 
+import utiles.CalculoVueltas;
+import utiles.Calculos;
 import utiles.Teclado;
 
 public class Prueba {
 
 	public static void main(String[] args) {
 		Teclado ent=new Teclado();
-//		Cacharros ps5=new Cacharros();
-//		System.out.println("Introduce la marca");
-//		ps5.setMarca(ent.letras());
-//		System.out.println("Introduce el tipo");
-//		ps5.setTipo(ent.letras());
-//		System.out.println("Introduce el consumo");
-//		ps5.setConsumo(ent.decimales());
-//		
-//		System.out.println(ps5.toString());
+		Calculos cal=new Calculos();
+		float num= cal.sumaDecimal(5.6666f, 3.32222f);
 		
-		boolean si=false;
+		System.out.println(num);
 		
-		si=ent.bool();
-		
-		if(si) {
-			System.out.println("hola");
-		}
+		num = cal.division(17, 7);
+		System.out.println(num);
+		num = cal.multiplicacion(17.5f, 7);
+		System.out.println(num);
 		
 	}
 }

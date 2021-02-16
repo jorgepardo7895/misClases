@@ -13,14 +13,16 @@ public class Teclado {
 	}
 	
 	public String deTodo() {
-		String frase=sc.nextLine();
+		String frase="";
+		frase=sc.nextLine();
 		
 		return frase;
 	}
 	
 	public String letras() {
 		String aux="", entrada="";
-		int cont=entrada.length();
+		int cont=0;
+		cont=entrada.length();
 		System.out.println("Ingresa solo palabras");
 		entrada=sc.nextLine();
 		do {
@@ -44,7 +46,8 @@ public class Teclado {
 	
 	public int enteros() {
 		String aux="", entrada="";
-		int numero=0, cont=entrada.length();
+		int numero=0, cont=0;
+		cont=entrada.length();
 		System.out.println("Ingrese un numero entero");
 		entrada=sc.nextLine();
 		do {
@@ -69,8 +72,9 @@ public class Teclado {
 	
 	public float decimales() {
 		String aux="", entrada="";
-		int cont=entrada.length();
-		float numero;
+		int cont=0;
+		cont=entrada.length();
+		float numero=0;
 		
 		System.out.println("Ingresa un numero decimal");
 		entrada=sc.nextLine();
@@ -120,7 +124,8 @@ public class Teclado {
 	
 	public char letra() {
 		System.out.println("Introduce la letra");
-		String entrada=letras();
+		String entrada="";
+		entrada=letras();
 		char letra[]=new char[0];
 		if (entrada.length()>1||entrada.length()<1) {
 			System.out.println("Solo una letra por favor");
@@ -132,7 +137,8 @@ public class Teclado {
 	
 	public String dni() {
 		System.out.println("Introduzca su DNI");
-		String dni = deTodo();
+		String dni="";
+		dni = deTodo();
 		String dniComprobado="";
 		if (dni.length()< 9 ||dni.length()>9 ) {
 			dni();

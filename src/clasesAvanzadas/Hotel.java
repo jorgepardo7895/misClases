@@ -1,5 +1,6 @@
 package clasesAvanzadas;
 
+import utiles.Calculos;
 import utiles.Teclado;
 
 public class Hotel {
@@ -7,6 +8,7 @@ public class Hotel {
 	public static void main(String[] args) {
 		Habitaciones listHab[]= new Habitaciones[6];
 		Teclado ent=new Teclado();
+		
 		
 		listHab[0]= new Habitaciones(1,"Cama de Matrimonio",true,false,false,30.00f);
 		listHab[1]= new Habitaciones(1,"Cama de Matrimonio",true,false,true,30.00f);
@@ -22,8 +24,8 @@ public class Hotel {
 	//Menú de opciones con switch que nos va llamando a distintos métodos dependiendo de la elección del usuario
 	public static void menuOpciones(Teclado ent, Habitaciones listHab[]) {
 		System.out.println("Seleccione la opcion que desee"+"\n"+ "·1 - Listado de Habitaciones"+"\n"+"·2 - Reservar"+"\n"+"·3 - Devolver habitación"+"\n"+"·4 - Salir del programa");
-		
-		int seleccion = ent.enteros();
+		int seleccion=0;
+		seleccion = ent.enteros();
 		
 		switch(seleccion) {
 		case 1:
@@ -37,15 +39,18 @@ public class Hotel {
 			break;
 		case 4:
 			System.out.println("Gracias por su visita");
-			break;
+			return;
 		}
-		return;
+		
 	}
+	
+	
 	//Método para realizar las reservas de habitaciones, nos muestra las habitaciones disponibles y luego tenemos que seleccionar la opción que deseemos
 	public static void reserva(Teclado ent,Habitaciones listHab[]) {
 		mostrarDisponibles(listHab);
 		System.out.println("Seleccione la habitación disponible que desee");
-		int seleccion=ent.enteros()-101;
+		int seleccion=0;
+		seleccion=ent.enteros()-101;
 		
 		if (listHab[seleccion].reservado) {
 			System.out.println("POR FAVOR SELECCIONE UNA HABITACIÓN LIBRE");
@@ -58,6 +63,8 @@ public class Hotel {
 			menuOpciones(ent, listHab);
 		}		
 	}
+	
+	
 	//Método que nos muestra todas las habitaciones y sus características estén reservadas o no
 	public static void mostrar(Teclado ent,Habitaciones listHab[]) {
 		System.out.println("Estas son nuestras habitaciones");
@@ -68,6 +75,8 @@ public class Hotel {
 		System.out.println(frase);
 		menuOpciones(ent,listHab);
 	}
+	
+	
 	//Método que solo nos muestra las habitaciones disponibles
 	public static void mostrarDisponibles(Habitaciones listHab[]) {
 		String frase="";
@@ -78,20 +87,27 @@ public class Hotel {
 		}
 		System.out.println(frase);	
 	}
+	
+	
 	//Método para devolver las habitaciones, con un bucle comprobamos el dni del usuario y cuando coincida con una reserva se ejecutará un syso con el total,
 	//si no coincide se pedirá volver a intentarlo.
 	public static void devolver(Teclado ent, Habitaciones listHab[]) {
+		Calculos cal=new Calculos();
 		int dias= (int)(Math.random()*5)+1;
 		String dni="";
 		dni=ent.dni();
 		for (int i = 0; i < listHab.length; i++) {
 			if (listHab[i].getDni().equalsIgnoreCase(dni)) {
-				System.out.println("Gracias por su estancia. El precio de "+dias+" dias de estancia es "+ listHab[i].getPrecio()*dias+" €");
+				System.out.println("Gracias por su estancia. El precio de "+dias+" dias de estancia es "+ cal.multiplicacion(listHab[i].getPrecio(),dias)+" €"+"\n"+"\n"+"\n");
 				listHab[i].setReservado(false);
-				menuOpciones(ent,listHab);
+				listHab[i].setDni("");
+				break;
+			}else {
+				System.out.println("Su Dni no está registrado en el hotel, vuelva a intentarlo");
+				devolver(ent, listHab);	
 			}
 		}
-		System.out.println("Su Dni no está registrado en el hotel, vuelva a intentarlo");
-		devolver(ent, listHab);	
+		menuOpciones(ent,listHab);
+		
 	}
 }
