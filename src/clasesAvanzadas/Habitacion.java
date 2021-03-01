@@ -1,6 +1,6 @@
 package clasesAvanzadas;
 
-public class Habitaciones {
+public class Habitacion {
 	// Atributos de la Clase
 	int numCamas;
 	String tipoCama;
@@ -11,7 +11,7 @@ public class Habitaciones {
 	String dni;
 	
 	//Constructores
-	public Habitaciones() {
+	public Habitacion() {
 		numCamas=0;
 		tipoCama="";
 		ventana=false;
@@ -20,7 +20,7 @@ public class Habitaciones {
 		precio=0.0f;
 		dni="";
 	}
-	public Habitaciones(int numCamas,String tipoCama, boolean ventana, boolean terraza,boolean reservado,float precio) {
+	public Habitacion(int numCamas,String tipoCama, boolean ventana, boolean terraza,boolean reservado,float precio) {
 		this.numCamas=numCamas;
 		this.tipoCama=tipoCama;
 		this.ventana=ventana;

@@ -1,6 +1,6 @@
 package clasesAvanzadas;
 
-public class Cacharros {
+public class Cacharro {
 	
 	//atributos de clase
 	private String marca;
@@ -8,13 +8,13 @@ public class Cacharros {
 	private float consumo;
 	
 	//constructores
-	public Cacharros() {
+	public Cacharro() {
 		marca="";
 		tipo="";
 		consumo=0.0f;
 	}
 	
-	public Cacharros(String marca, String tipo, float consumo) {
+	public Cacharro(String marca, String tipo, float consumo) {
 		this.marca=marca;
 		this.tipo=tipo;
 		this.consumo=consumo;

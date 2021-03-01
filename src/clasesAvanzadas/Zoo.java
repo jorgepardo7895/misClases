@@ -31,6 +31,7 @@ public class Zoo {
 			for (int j = 0; j < lista.length; j++) {
 				if (lista[j].getId()==seleccion) {
 					System.out.println("Ya existe un animal con ese ID");
+					i--;
 					break;
 				}else if(lista[j].getId()!=seleccion) {
 					lista[i].setId(seleccion);

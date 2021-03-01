@@ -1,6 +1,6 @@
 package clasesAvanzadas;
 
-public class Series {
+public class Serie {
 	//atributos de la clase
 	public String nombre;
 	public boolean fin;
@@ -8,7 +8,7 @@ public class Series {
 	public float rating;
 	
 	//contructor por defecto
-	public Series() {
+	public Serie() {
 		nombre="";
 		fin=false;
 		temporadas=0;
@@ -16,7 +16,7 @@ public class Series {
 	}
 	
 	//constructor con parametros
-	public Series(String nombre, boolean fin, int temporadas, float rating) {
+	public Serie(String nombre, boolean fin, int temporadas, float rating) {
 		this.nombre=nombre;
 		this.fin=fin;
 		this.temporadas=temporadas;
