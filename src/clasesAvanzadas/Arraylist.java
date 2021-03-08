@@ -7,7 +7,7 @@ public class Arraylist {
 	public static void main(String args[]) {
 		
 		ArrayList<String> lista = new ArrayList<String>();
-		lista.add("hola");
+		lista.add("Hola");
 		lista.add("Mundo");
 		lista.add("Maravilloso");
 		
